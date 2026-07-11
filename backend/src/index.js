@@ -1,4 +1,4 @@
-import express from "express";
+import express, { application } from "express";
 import "dotenv/config" ;
 import User from "./models/user.model.js";
 import { connect } from "mongoose";
@@ -6,7 +6,7 @@ import { connectDb } from "./lib/db.js";
 import fs from 'fs' ; 
 import path from 'path';
 import job from './lib/cron.js'
-
+import clerkWebhook from "./webhooks/clerk.webhook.js"
 import {clerkMiddleware} from "@clerk/express"
 import cors from "cors"
 
@@ -17,6 +17,8 @@ const FRONTEND_URL = process.env.FRONTEND_URL ;
 const publicDir = path.join(process.cwd() , "public")
 
 //middlewares
+app.use("/api/webhooks/clerk",express.raw({type:"application/json"}) , clerkWebhook)
+
 app.use(express.json());
 app.use(cors({origin:FRONTEND_URL , credentials : true}));
 app.use(clerkMiddleware());
