@@ -7,6 +7,7 @@ import fs from 'fs' ;
 import path from 'path';
 import job from './lib/cron.js'
 import clerkWebhook from "./webhooks/clerk.webhook.js"
+import authRoutes from "./routes/auth.route.js"
 import {clerkMiddleware} from "@clerk/express"
 import cors from "cors"
 
@@ -22,6 +23,8 @@ app.use("/api/webhooks/clerk",express.raw({type:"application/json"}) , clerkWebh
 app.use(express.json());
 app.use(cors({origin:FRONTEND_URL , credentials : true}));
 app.use(clerkMiddleware());
+
+app.use("api/auth" , authRoutes)
 
 app.get("/health", (req,res)=>{
     res.status(200).json({ok :true});
