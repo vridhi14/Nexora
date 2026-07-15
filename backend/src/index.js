@@ -11,8 +11,9 @@ import authRoutes from "./routes/auth.route.js"
 import messageRoutes from "./routes/message.route.js"
 import {clerkMiddleware} from "@clerk/express"
 import cors from "cors"
+import {app , server} from "./lib/socket.js"
 
-const app = express(); 
+
 const PORT = process.env.PORT ;
 const FRONTEND_URL = process.env.FRONTEND_URL ;
 
@@ -40,7 +41,7 @@ if(fs.existsSync(publicDir)){
 app.get("/{*any}" , (req,res,next)=>{
     res.sendFile(path.join(publicDir, "index.html") , (err)=>next(err));
 })
-app.listen(PORT , ()=>{
+server.listen(PORT , ()=>{
     connectDb();
     console.log('server is runnning on port:' , PORT);
 

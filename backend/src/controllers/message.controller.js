@@ -1,6 +1,7 @@
 import User from "../models/user.model.js";
 import Message from "../models/message.model.js"
 import {uploadChatMedia , hasImageKitConfig} from "../lib/imagekit.js"
+import { getReceiveSocketId } from "../lib/socket.js";
 
 export async function  getUsersForSidebar(req, res ) {
     try{
@@ -76,7 +77,12 @@ export async function  sendMessage(req,res) {
             senderId , receiverId , text , image:imageUrl , video:videoUrl , 
         })
         await newMessage.save();
-        //REALTIME WITH SOCKET.IO
+        
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if(receiverSocketId){
+            io.to(receiverSocketId).emit("newMessage" , newMessage);
+        }
+
         res.status(201).json(newMessage)
     }
     catch(error){
