@@ -5,11 +5,12 @@ import {WallpaperProvider} from './context/WallpaperContext.jsx';
 import {ThemeProvider} from './context/ThemeContext.jsx' ; 
 import ChatPage from './pages/ChatPage.jsx';
 import AuthPage from './pages/AuthPage.jsx';
-import { Navigate } from 'react-router';
+import { Routes, Route, Navigate } from "react-router";
 import { useAuthStore } from './store/useAuthStore.js';
 import { Toaster } from "react-hot-toast";
 import { useAuth } from '@clerk/react';
 import { useState, useEffect } from "react";
+import PageLoader from './components/PageLoader.jsx'
 
 function App() {
 
