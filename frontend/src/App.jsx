@@ -1,12 +1,12 @@
 
 // import {Show , SignInButton , SignUpButton , UserButton} from '@clerk/react'
 // import { Button } from '@heroui/react';
-import {WallpaperProvider} from './context/WallpaperContext'; 
-import {ThemeProvider} from './context/ThemeContext' ; 
-import ChatPage from './pages/ChatPage';
-import AuthPage from './pages/AuthPage';
+import {WallpaperProvider} from './context/WallpaperContext.jsx'; 
+import {ThemeProvider} from './context/ThemeContext.jsx' ; 
+import ChatPage from './pages/ChatPage.jsx';
+import AuthPage from './pages/AuthPage.jsx';
 import { Navigate } from 'react-router';
-import { useAuthStore } from './store/useAuthStore';
+import { useAuthStore } from './store/useAuthStore.js';
 import { Toaster } from "react-hot-toast";
 
 function App() {

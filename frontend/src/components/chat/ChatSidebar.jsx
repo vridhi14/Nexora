@@ -1,12 +1,12 @@
-import { getInitials, useSelectedConversation } from "../../hooks/useSelectedConversation";
-import { useAuthStore } from "../../store/useAuthStore";
-import { useChatStore } from "../../store/useChatStore";
-import { APP_NAME, AppLogo } from "../AppLogo";
+import { getInitials, useSelectedConversation } from "../../hooks/useSelectedConversation.js";
+import { useAuthStore } from "../../store/useAuthStore.js";
+import { useChatStore } from "../../store/useChatStore.js";
+import { APP_NAME, AppLogo } from "../AppLogo.jsx";
 import { UserButton } from "@clerk/react";
 
 import { SearchField, Tabs } from "@heroui/react";
 import { MessageSquareIcon, UsersIcon } from "lucide-react";
-import { ConversationRow } from "./ConversationRow";
+import { ConversationRow } from "./ConversationRow.jsx";
 
 function mapUserForList(user, onlineUsers) {
   return {

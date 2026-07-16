@@ -1,7 +1,7 @@
 import { APP_NAME, AppLogo } from "../AppLogo";
-import { ThemePresetPicker } from "../ThemePresetPicker";
-import { ThemeToggle } from "../ThemeToggle";
-import { WallpaperPicker } from "../WallpaperPicker";
+import { ThemePresetPicker } from "../ThemePresentPicker.jsx";
+import { ThemeToggle } from "../ThemeToggle.jsx";
+import { WallpaperPicker } from "../WallpaperPicker.jsx";
 
 function AuthHeader() {
   return (

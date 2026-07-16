@@ -1,11 +1,11 @@
-import { useWallpaper } from "../context/wallpaper";
-import { useChatStore } from "../store/useChatStore";
-import { useSelectedConversation } from "../hooks/useSelectedConversation";
+import { useWallpaper } from "../context/WallpaperContext.jsx";
+import { useChatStore } from "../store/useChatStore.js";
+import { useSelectedConversation } from "../hooks/useSelectedConversation.js";
 import { useEffect } from "react";
-import ChatSidebar from "../components/chat/ChatSidebar";
-import { ChatHeader } from "../components/chat/ChatHeader";
-import { MessageList } from "../components/chat/MessageList";
-import { ChatComposer } from "../components/chat/ChatComposer";
+import ChatSidebar from "../components/chat/ChatSidebar.jsx";
+import { ChatHeader } from "../components/chat/ChatHeader.jsx";
+import { MessageList } from "../components/chat/MessageList.jsx";
+import { ChatComposer } from "../components/chat/ChatComposer.jsx";
 
 function ChatPage() {
   const { frameStyle } = useWallpaper();

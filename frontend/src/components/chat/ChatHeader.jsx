@@ -1,15 +1,15 @@
 import { Avatar, Button } from "@heroui/react";
 import { ChevronLeftIcon, Volume2Icon, VolumeXIcon, XIcon } from "lucide-react";
 import { AppLogo } from "../AppLogo";
-import { AvatarWithOnlineIndicator } from "./AvatarWithOnlineIndicator";
+import { AvatarWithOnlineIndicator } from "./AvatarWithOnlineIndicator.jsx";
 
-import { ThemePresetPicker } from "../ThemePresetPicker";
+import { ThemePresetPicker } from "../ThemePresentPicker.jsx";
 
-import { ThemeToggle } from "../ThemeToggle";
-import { WallpaperPicker } from "../WallpaperPicker";
+import { ThemeToggle } from "../ThemeToggle.jsx";
+import { WallpaperPicker } from "../WallpaperPicker.jsx";
 
-import { useChatStore } from "../../store/useChatStore";
-import { useSelectedConversation } from "../../hooks/useSelectedConversation";
+import { useChatStore } from "../../store/useChatStore.js";
+import { useSelectedConversation } from "../../hooks/useSelectedConversation.js";
 
 export function ChatHeader() {
   const isSoundEnabled = useChatStore((state) => state.isSoundEnabled);

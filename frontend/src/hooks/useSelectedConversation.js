@@ -1,9 +1,9 @@
-import { useMediaQuery } from "./useMediaQuery";
-import { formatMessageTime } from "../lib/utils";
-import { useChatStore } from "../store/useChatStore";
-import { useAuthStore } from "../store/useAuthStore";
+import { useMediaQuery } from "./useMediaQuery.js";
+import { formatMessageTime } from "../lib/utils.js";
+import { useChatStore } from "../store/useChatStore.js";
+import { useAuthStore } from "../store/useAuthStore.js";
 
-// John Doe -> JD
+// Vridhi Rajeev -> VR
 export function getInitials(name) {
   return name
     .split(" ")
