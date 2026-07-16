@@ -9,6 +9,7 @@ import { Navigate } from 'react-router';
 import { useAuthStore } from './store/useAuthStore.js';
 import { Toaster } from "react-hot-toast";
 import { useAuth } from '@clerk/react';
+import { useState, useEffect } from "react";
 
 function App() {
 
