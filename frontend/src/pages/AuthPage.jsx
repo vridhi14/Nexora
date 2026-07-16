@@ -1,5 +1,5 @@
 import { AuthActionPanel } from "../components/Auth/AuthActionPanel.jsx";
-import {AuthHeader} from "../components/Auth/AuthHeader.jsx";
+import AuthHeader from "../components/Auth/AuthHeader.jsx";
 import { AuthHeroPanel } from "../components/Auth/AuthHeroPanel.jsx";
 import { useWallpaper } from "../context/wallpaper.js";
 
