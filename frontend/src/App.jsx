@@ -12,14 +12,14 @@ function App() {
   
   //todo : make it better  
   if(!isLoaded){
-    return <p>Loading....</p>
+    return <PageLoader/>
   }
   return (
     <ThemeProvider>
       <WallpaperProvider>
         <Routes>
-          <Route path="/" elemnt={isSignedIn ? <ChatPage/> : <Navigate to={"/auth"} replace/> } />
-          <Route path="/auth" elemnt={!isSignedIn ? <AuthPage/> : <Navigate to={"/chat"} replace/>} />
+          <Route path="/" element={isSignedIn ? <ChatPage/> : <Navigate to={"/auth"} replace/> } />
+          <Route path="/auth" element={!isSignedIn ? <AuthPage/> : <Navigate to={"/"} replace/>} />
         </Routes>
       </WallpaperProvider>
     </ThemeProvider>
