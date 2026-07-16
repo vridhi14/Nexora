@@ -6,14 +6,26 @@ import {ThemeProvider} from './context/ThemeContext' ;
 import ChatPage from './pages/ChatPage';
 import AuthPage from './pages/AuthPage';
 import { Navigate } from 'react-router';
+import { useAuthStore } from './store/useAuthStore';
+import { Toaster } from "react-hot-toast";
+
 function App() {
 
   const {isSignedIn , isLoaded} = useAuth();
+ 
+  const clearAuth = useAuthStore((state) => state.clearAuth);
+  const checkAuth = useAuthStore((state) => state.checkAuth);
+  const isCheckingAuth = useAuthStore((state) => state.isCheckingAuth);
+
+  useEffect(() => {
+    if (!isLoaded) return;
+
+    if (isSignedIn) checkAuth();
+    else clearAuth();
+  }, [checkAuth, clearAuth, isLoaded, isSignedIn]);
   
-  //todo : make it better  
-  if(!isLoaded){
-    return <PageLoader/>
-  }
+  if (!isLoaded || (isSignedIn && isCheckingAuth)) return <PageLoader />
+
   return (
     <ThemeProvider>
       <WallpaperProvider>
@@ -21,6 +33,7 @@ function App() {
           <Route path="/" element={isSignedIn ? <ChatPage/> : <Navigate to={"/auth"} replace/> } />
           <Route path="/auth" element={!isSignedIn ? <AuthPage/> : <Navigate to={"/"} replace/>} />
         </Routes>
+        <Toaster/>
       </WallpaperProvider>
     </ThemeProvider>
   );
