@@ -1,4 +1,4 @@
-import { useWallpaper } from "../context/WallpaperContext.jsx";
+import { useWallpaper } from "../context/wallpaper.js";
 import { useChatStore } from "../store/useChatStore.js";
 import { useSelectedConversation } from "../hooks/useSelectedConversation.js";
 import { useEffect } from "react";
