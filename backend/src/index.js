@@ -2,7 +2,7 @@ import express, { application } from "express";
 import "dotenv/config" ;
 import User from "./models/user.model.js";
 import { connect } from "mongoose";
-import { connectDb } from "./lib/db.js";
+import { connectDB } from "./lib/db.js";
 import fs from 'fs' ; 
 import path from 'path';
 import job from './lib/cron.js'
@@ -42,7 +42,7 @@ app.get("/{*any}" , (req,res,next)=>{
     res.sendFile(path.join(publicDir, "index.html") , (err)=>next(err));
 })
 server.listen(PORT , ()=>{
-    connectDb();
+    connectDB();
     console.log('server is runnning on port:' , PORT);
 
     if(process.env.NODE_ENV === "production"){job.start();}
