@@ -19,7 +19,7 @@
 
 <br><br>
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Nexora-success?style=for-the-badge)](https://nexora-yazk.onrender.com/)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Nexora-success?style=for-the-badge)](https://nexora-yazk.onrender.com)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/vridhi14/Nexora)
 
 </div>
@@ -27,7 +27,7 @@
 ---
 <div align="center">
 
-🚀 Live Demo: https://nexora-yazk.onrender.coma/
+🚀 Live Demo: https://nexora-yazk.onrender.com
 
 </div>
 
@@ -211,7 +211,7 @@ Nexora/
 
 ## 🌐 Live Demo
 
-👉 https://nexora-yazk.onrender.coma/
+👉 https://nexora-yazk.onrender.com
 
 ---
 
