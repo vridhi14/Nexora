@@ -14,7 +14,7 @@ router.post("/", async(req,res)=>{
         return ; 
     }
 
-    const payload = Buffer.isBuffer(req.BODY) ? req.body.toString("utf8"):String(req.body);
+    const payload = Buffer.isBuffer(req.body) ? req.body.toString("utf8"):String(req.body);
     const request = new Request("http://internal/webhooks/clerk",{
         method:"POST" , 
         headers : new Headers(req.headers),
@@ -30,14 +30,23 @@ router.post("/", async(req,res)=>{
         u.email_addresses?.[0]?.email_address ;
         
         const fullName = 
-        [u.first_name , u.last_name].filter(Boolean).join("")|| u.username || email?.Split("@")[0]; 
+        [u.first_name , u.last_name].filter(Boolean).join("")|| u.username || email?.split("@")[0]; 
 
         await User.findOneAndUpdate(
-            {clerkId : id },
-            {clerkId : u.id , email , fullName , profilePic : u.image_url},
-            {new : true , upsert:true , setDefaultsOnInsert : true},
+            { clerkId: u.id },
+            {
+                clerkId: u.id,
+                email,
+                fullName,
+                profilePic: u.image_url,
+            },
+            {
+                new: true,
+                upsert: true,
+                setDefaultsOnInsert: true,
+            }
         );
-    }
+}
     if(evt.type === "user.deleted"){
         if(evt.data.id) await User.findOneAndDelete({clerkId : evt.data.id});
     }
