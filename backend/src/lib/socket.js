@@ -1,6 +1,5 @@
 import express from "express";
 import http from "http"; 
-import { useSyncExternalStore } from "react";
 import {Server} from "socket.io";
 
 const app = express(); 

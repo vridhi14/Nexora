@@ -24,6 +24,7 @@ app.use("/api/webhooks/clerk",express.raw({type:"application/json"}) , clerkWebh
 
 app.use(express.json());
 app.use(cors({origin:FRONTEND_URL , credentials : true}));
+
 app.use(clerkMiddleware());
 
 app.use("/api/auth" , authRoutes);
