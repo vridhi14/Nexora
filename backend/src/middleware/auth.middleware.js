@@ -10,7 +10,21 @@ export async function protectRoute(req, res, next) {
       return;
     }
 
-    const user = await User.findOne({ clerkId: userId });
+    // const user = await User.findOne({ clerkId: userId });
+    console.log("Clerk userId:", userId);
+
+const allUsers = await User.find();
+console.log(
+  "Mongo users:",
+  allUsers.map(u => ({
+    clerkId: u.clerkId,
+    email: u.email,
+  }))
+);
+
+const user = await User.findOne({ clerkId: userId });
+
+console.log("Matched user:", user);
 
     if (!user) {
       res.status(404).json({ message: "User profile is not synced yet" });
